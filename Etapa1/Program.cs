@@ -10,7 +10,8 @@ namespace Etapa1
             var school = new School("Platzi School", 2012);
             school.Country = "Colombia";
             school.City = "Bogota";
-            Console.WriteLine(school.Name);
+            school.SchoolType = SchoolTypes.Primary;
+            Console.WriteLine(school);
         }
     }
 }
