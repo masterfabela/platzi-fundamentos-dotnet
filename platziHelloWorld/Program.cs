@@ -6,7 +6,7 @@ namespace platziHelloWorld
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.WriteLine("Hola platzi");
         }
     }
 }
