@@ -1,0 +1,16 @@
+C:\Users\fabel\Desktop\Proyectos\platzi-fundamentos-dotnet\platziHelloWorld\bin\Debug\net5.0\platziHelloWorld.exe
+C:\Users\fabel\Desktop\Proyectos\platzi-fundamentos-dotnet\platziHelloWorld\bin\Debug\net5.0\platziHelloWorld.deps.json
+C:\Users\fabel\Desktop\Proyectos\platzi-fundamentos-dotnet\platziHelloWorld\bin\Debug\net5.0\platziHelloWorld.runtimeconfig.json
+C:\Users\fabel\Desktop\Proyectos\platzi-fundamentos-dotnet\platziHelloWorld\bin\Debug\net5.0\platziHelloWorld.runtimeconfig.dev.json
+C:\Users\fabel\Desktop\Proyectos\platzi-fundamentos-dotnet\platziHelloWorld\bin\Debug\net5.0\platziHelloWorld.dll
+C:\Users\fabel\Desktop\Proyectos\platzi-fundamentos-dotnet\platziHelloWorld\bin\Debug\net5.0\ref\platziHelloWorld.dll
+C:\Users\fabel\Desktop\Proyectos\platzi-fundamentos-dotnet\platziHelloWorld\bin\Debug\net5.0\platziHelloWorld.pdb
+C:\Users\fabel\Desktop\Proyectos\platzi-fundamentos-dotnet\platziHelloWorld\obj\Debug\net5.0\platziHelloWorld.csprojAssemblyReference.cache
+C:\Users\fabel\Desktop\Proyectos\platzi-fundamentos-dotnet\platziHelloWorld\obj\Debug\net5.0\platziHelloWorld.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\fabel\Desktop\Proyectos\platzi-fundamentos-dotnet\platziHelloWorld\obj\Debug\net5.0\platziHelloWorld.AssemblyInfoInputs.cache
+C:\Users\fabel\Desktop\Proyectos\platzi-fundamentos-dotnet\platziHelloWorld\obj\Debug\net5.0\platziHelloWorld.AssemblyInfo.cs
+C:\Users\fabel\Desktop\Proyectos\platzi-fundamentos-dotnet\platziHelloWorld\obj\Debug\net5.0\platziHelloWorld.csproj.CoreCompileInputs.cache
+C:\Users\fabel\Desktop\Proyectos\platzi-fundamentos-dotnet\platziHelloWorld\obj\Debug\net5.0\platziHelloWorld.dll
+C:\Users\fabel\Desktop\Proyectos\platzi-fundamentos-dotnet\platziHelloWorld\obj\Debug\net5.0\ref\platziHelloWorld.dll
+C:\Users\fabel\Desktop\Proyectos\platzi-fundamentos-dotnet\platziHelloWorld\obj\Debug\net5.0\platziHelloWorld.pdb
+C:\Users\fabel\Desktop\Proyectos\platzi-fundamentos-dotnet\platziHelloWorld\obj\Debug\net5.0\platziHelloWorld.genruntimeconfig.cache
