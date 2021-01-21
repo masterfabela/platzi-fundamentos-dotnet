@@ -24,10 +24,10 @@ namespace coreEscuela
             mySchool.addres = "Cr 9 calle 72";
             mySchool.fundationYear = 2012;
             Console.WriteLine("Timbre");
-            CantarZelda();
+            ZeldasSong();
         }
 
-        static void CantarZelda()
+        static void ZeldasSong()
         {
             Console.Beep(987, 1000); //Si
             Console.Beep(1174, 500); //Re'
