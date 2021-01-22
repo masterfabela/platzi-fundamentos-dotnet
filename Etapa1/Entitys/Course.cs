@@ -1,5 +1,5 @@
 using System;
-namespace CoreEscuela.Entidades
+namespace SchoolCore.Entidades
 {
     public class Course
     {

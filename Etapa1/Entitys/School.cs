@@ -1,4 +1,4 @@
-namespace CoreEscuela.Entidades
+namespace SchoolCore.Entidades
 {
     class School
     {
