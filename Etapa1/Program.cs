@@ -1,5 +1,6 @@
 ﻿using System;
 using SchoolCore.Entidades;
+using static System.Console;
 
 namespace Etapa1
 {
@@ -17,40 +18,42 @@ namespace Etapa1
             school.Country = "Colombia";
             school.City = "Bogota";
             school.SchoolType = SchoolType.Primary;
-            Console.WriteLine(school);
-            var courses = new Course[3];
-            courses[0] = new Course()
-            {
-                Name = "101",
-            };
-            courses[1] = new Course()
-            {
-                Name = "201"
-            };
-            courses[2] = new Course()
-            {
-                Name = "301"
-            };
-            Console.WriteLine("==============");
-            Console.WriteLine($"{courses[0].Name} , {courses[0].Id}");
-            Console.WriteLine($"{courses[1].Name} , {courses[1].Id}");
-            Console.WriteLine(courses[2]);
-            Console.WriteLine("==============");
-            PrintCoursesWhile(courses);
-            Console.WriteLine("==============");
-            PrintCoursesDoWhile(courses);
-            Console.WriteLine("==============");
-            PrintCoursesFor(courses);
-            Console.WriteLine("==============");
-            PrintCoursesForEach(courses);
+            WriteLine(school);
 
+            school.Courses = new Course[]{
+                new Course(){Name = "101"},
+                new Course(){Name = "201"},
+                new Course(){Name = "301"}
+            };
+
+            WriteLine("==============");
+            PrintCoursesWhile(school.Courses);
+            WriteLine("==============");
+            PrintCoursesDoWhile(school.Courses);
+            WriteLine("==============");
+            PrintCoursesFor(school.Courses);
+            WriteLine("==============");
+            PrintCoursesForEach(school.Courses);
+            WriteLine("==============");
+            PrintSchoolCourses(school);
+            School newSchool = null;
+            PrintSchoolCourses(newSchool);
+
+        }
+
+        private static void PrintSchoolCourses(School school)
+        {
+            if (school?.Courses != null)
+            {
+                PrintCoursesForEach(school.Courses);
+            }
         }
 
         private static void PrintCoursesForEach(Course[] courses)
         {
             foreach (var course in courses)
             {
-                Console.WriteLine($"Nombre: {course.Name}, Id {course.Id}");
+                WriteLine($"Nombre: {course.Name}, Id {course.Id}");
             }
         }
 
@@ -58,7 +61,7 @@ namespace Etapa1
         {
             for (int i = 0; i < courses.Length; i++)
             {
-                Console.WriteLine($"Nombre: {courses[i].Name}, Id {courses[i].Id}");
+                WriteLine($"Nombre: {courses[i].Name}, Id {courses[i].Id}");
             }
         }
 
@@ -67,7 +70,7 @@ namespace Etapa1
             int counter = 0;
             do
             {
-                Console.WriteLine($"Nombre: {courses[counter].Name}, Id {courses[counter].Id}");
+                WriteLine($"Nombre: {courses[counter].Name}, Id {courses[counter].Id}");
             } while (++counter < courses.Length);
         }
 
@@ -76,7 +79,7 @@ namespace Etapa1
             int counter = 0;
             while (counter < courses.Length)
             {
-                Console.WriteLine($"Nombre: {courses[counter].Name}, Id {courses[counter].Id}");
+                WriteLine($"Nombre: {courses[counter].Name}, Id {courses[counter].Id}");
                 counter++;
             }
         }
