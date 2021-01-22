@@ -39,6 +39,26 @@ namespace Etapa1
             School newSchool = null;
             PrintSchoolCourses(newSchool);
 
+            bool response = 10 == 10;
+            int cuantity = 10;
+
+            if (response == false)
+            {
+                WriteLine("Se cumplio la condicion #1");
+            }
+            else if (cuantity > 10)
+            {
+                WriteLine("Se cumplio la condicion #2");
+            }
+            else
+            {
+                WriteLine("No se cumplio ninguna condicion");
+            }
+            if (cuantity > 5 && response)
+            {
+                WriteLine("Se cumplio la condicion #3");
+            }
+
         }
 
         private static void PrintSchoolCourses(School school)
