@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using SchoolCore.Entidades;
 using static System.Console;
 
@@ -20,11 +21,21 @@ namespace Etapa1
             school.SchoolType = SchoolType.Primary;
             WriteLine(school);
 
-            school.Courses = new Course[]{
+            school.Courses = new List<Course>{
                 new Course(){Name = "101"},
                 new Course(){Name = "201"},
                 new Course(){Name = "301"}
             };
+            school.Courses.AddRange(
+                new List<Course>{
+                    new Course()
+                    { Name = "102", WorkDay = WorkDayType.Afternoon },
+                    new Course()
+                    { Name = "202", WorkDay = WorkDayType.Afternoon }
+                }
+            );
+
+            school.Courses.Clear();
 
             WriteLine("==============");
             PrintCoursesWhile(school.Courses);
@@ -69,7 +80,7 @@ namespace Etapa1
             }
         }
 
-        private static void PrintCoursesForEach(Course[] courses)
+        private static void PrintCoursesForEach(List<Course> courses)
         {
             foreach (var course in courses)
             {
@@ -77,31 +88,43 @@ namespace Etapa1
             }
         }
 
-        private static void PrintCoursesFor(Course[] courses)
+        private static void PrintCoursesFor(List<Course> courses)
         {
-            for (int i = 0; i < courses.Length; i++)
+            if (courses.Count > 0)
             {
-                WriteLine($"Nombre: {courses[i].Name}, Id {courses[i].Id}");
+                for (int i = 0; i < courses.Count; i++)
+                {
+                    WriteLine($"Nombre: {courses[i].Name}, Id {courses[i].Id}");
+                }
             }
+
         }
 
-        private static void PrintCoursesDoWhile(Course[] courses)
+        private static void PrintCoursesDoWhile(List<Course> courses)
         {
-            int counter = 0;
-            do
+            if (courses.Count > 0)
             {
-                WriteLine($"Nombre: {courses[counter].Name}, Id {courses[counter].Id}");
-            } while (++counter < courses.Length);
+                int counter = 0;
+                do
+                {
+                    WriteLine($"Nombre: {courses[counter].Name}, Id {courses[counter].Id}");
+                } while (++counter < courses.Count);
+            }
+
         }
 
-        private static void PrintCoursesWhile(Course[] courses)
+        private static void PrintCoursesWhile(List<Course> courses)
         {
-            int counter = 0;
-            while (counter < courses.Length)
+            if (courses.Count > 0)
             {
-                WriteLine($"Nombre: {courses[counter].Name}, Id {courses[counter].Id}");
-                counter++;
+                int counter = 0;
+                while (counter < courses.Count)
+                {
+                    WriteLine($"Nombre: {courses[counter].Name}, Id {courses[counter].Id}");
+                    counter++;
+                }
             }
+
         }
     }
 }
