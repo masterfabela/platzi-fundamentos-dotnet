@@ -2,6 +2,13 @@
 	"editor.tabSize": 4,
 	"csharp.format.enable": true,
 	"[csharp]": {
-		"editor.defaultFormatter": "ms-dotnettools.csharp"
+		"editor.defaultFormatter": "ms-dotnettools.csharp",
+		"editor.quickSuggestions": {
+			"other": true,
+			"comments": false,
+			"strings": true
+		},
+		"editor.suggestOnTriggerCharacters": true,
+		"editor.quickSuggestionsDelay": 5
 	}
 }
