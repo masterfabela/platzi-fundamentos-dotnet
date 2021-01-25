@@ -13,7 +13,7 @@ namespace SchoolCore.Entidades
         public string Id { get; private set; }
         public WorkDayType WorkDay { get; set; }
 
-        public List<Subject> Subjects { get; set; }
-        public List<Student> Students { get; set; }
+        public List<Subject> Subjects { get; set; } = new List<Subject>();
+        public List<Student> Students { get; set; } = new List<Student>();
     }
 }

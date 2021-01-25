@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using SchoolCore.Entidades;
@@ -20,10 +21,8 @@ namespace SchoolCore
                 "Bogota"
             );
             InitializeCourses();
-            foreach (var course in School.Courses)
-            {
-                course.Students.AddRange(GetStudents());
-            }
+            InitialiceSubjects();
+
 
         }
 
@@ -36,6 +35,10 @@ namespace SchoolCore
                 new Course(){ Name = "401", WorkDay = WorkDayType.Afternoon },
                 new Course(){ Name = "501", WorkDay = WorkDayType.Afternoon }
             };
+            foreach (var course in School.Courses)
+            {
+                course.Students.AddRange(GetStudents(new Random().Next(5, 20)));
+            }
         }
 
         private void InitialiceSubjects()
@@ -52,16 +55,20 @@ namespace SchoolCore
             }
         }
 
-        private IEnumerable<Student> GetStudents()
+        private List<Student> GetStudents(int cuantity = 30)
         {
             string[] names1 = { "Alba", "Felipa", "Eusebio", "Farid", "Donald", "Alvaro", "Nicolas" };
             string[] surnames = { "Ruiz", "Sarmiento", "Uribe", "Maduro", "Trump", "Toledo", "Herrera" };
             string[] names2 = { "Freddy", "Anabel", "Rick", "Murty", "Silvana", "Diomedes", "Nicomedes", "Teodoro" };
-            return
+            var students =
                 from name1 in names1
                 from name2 in names2
                 from surname in surnames
                 select new Student { Name = $"{name1} {name2} {surname}" };
+            return students
+                .OrderBy((alumno) => alumno.UniqueId)
+                .Take(cuantity)
+                .ToList();
         }
     }
 }

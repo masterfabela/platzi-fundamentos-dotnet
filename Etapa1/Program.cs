@@ -13,7 +13,6 @@ namespace SchoolCore
             var engine = new SchoolEngine();
             engine.Initialize();
             PrintTitle("Bienvenidos a la escuela");
-            SchoolCore.Util.Printer.Beep(10000, cuantity: 10);
             PrintSchoolCourses(engine.School);
         }
 
