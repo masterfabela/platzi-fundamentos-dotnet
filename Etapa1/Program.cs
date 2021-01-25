@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using SchoolCore.Entidades;
 using static System.Console;
+using static SchoolCore.Util.Printer;
 
 namespace SchoolCore
 {
@@ -11,6 +12,8 @@ namespace SchoolCore
         {
             var engine = new SchoolEngine();
             engine.Initialize();
+            PrintTitle("Bienvenidos a la escuela");
+            SchoolCore.Util.Printer.Beep(10000, cuantity: 10);
             PrintSchoolCourses(engine.School);
         }
 
@@ -21,6 +24,7 @@ namespace SchoolCore
 
         private static void PrintSchoolCourses(School school)
         {
+            PrintTitle("Cursos de escuela");
             if (school?.Courses != null)
             {
                 PrintCoursesForEach(school.Courses);
