@@ -7,9 +7,7 @@ namespace SchoolCore
     {
         public School School { get; set; }
 
-        public SchoolEngine()
-        {
-        }
+        public SchoolEngine() { }
 
         public void Initialize()
         {
