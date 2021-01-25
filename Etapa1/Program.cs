@@ -34,15 +34,8 @@ namespace Etapa1
                     { Name = "202", WorkDay = WorkDayType.Afternoon }
                 }
             );
-            Course temp = new Course { Name = "101-vacacional", WorkDay = WorkDayType.Night };
-            school.Courses.Add(temp);
             PrintSchoolCourses(school);
-            WriteLine("Curso.Hash: " + temp.GetHashCode());
-            Predicate<Course> myAlgorim = Predicate;
             school.Courses.RemoveAll(curso => curso.Name == "101");
-            school.Courses.Remove(temp);
-            WriteLine("-------------");
-            PrintSchoolCourses(school);
 
             school.Courses.Clear();
 
