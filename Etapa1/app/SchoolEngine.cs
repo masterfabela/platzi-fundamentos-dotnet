@@ -6,7 +6,7 @@ using SchoolCore.Entidades;
 
 namespace SchoolCore
 {
-    public class SchoolEngine
+    public sealed class SchoolEngine
     {
         public School School { get; set; }
 
