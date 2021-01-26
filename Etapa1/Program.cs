@@ -41,11 +41,16 @@ namespace SchoolCore
             WriteLine($"ID: {evaluation.UniqueId}");
             WriteLine($"Nota: {evaluation.Score}");
             WriteLine($"Tipo: {evaluation.GetType()}");
-            ob = evaluation;
-            PrintTitle("Objeto Evaluacion");
-            WriteLine($"Alumno: {ob.Name}");
-            WriteLine($"ID: {ob.UniqueId}");
-            WriteLine($"Tipo: {ob.GetType()}");
+            if (ob is Student)
+            {
+                Student recoveredStudent = (Student)ob;
+            }
+            // Mejor manera
+            Student recoveredStudent2 = ob as Student;
+            if (recoveredStudent2 != null)
+            {
+                // Haz cosas
+            }
         }
 
         private static bool Predicate(Course objectiveCourse)

@@ -28,5 +28,22 @@ namespace SchoolCore.Entidades
             return $"Nombre: \"{this.Name}\", Tipo: {this.SchoolType} {System.Environment.NewLine}Pais: {this.Country}, Ciudad: {this.City}";
         }
 
+        public List<SchoolBase> GetSchoolObjects()
+        {
+            var objectList = new List<SchoolBase>();
+            objectList.Add(this);
+            objectList.AddRange(this.Courses);
+            foreach (Course course in this.Courses)
+            {
+                objectList.AddRange(course.Subjects);
+                objectList.AddRange(course.Students);
+                foreach (Student student in course.Students)
+                {
+                    objectList.AddRange(student.Evaluations);
+                }
+            }
+            return objectList;
+        }
+
     }
 }

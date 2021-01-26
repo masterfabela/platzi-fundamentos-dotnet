@@ -23,6 +23,7 @@ namespace SchoolCore
             );
             InitializeCourses();
             InitialiceSubjects();
+            var schoolObjects = School.GetSchoolObjects();
 
         }
 
