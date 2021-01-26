@@ -21,11 +21,11 @@ namespace SchoolCore
         {
             PrintTitle("Pruebas de polimorfismo");
             var studentTest = new Student { Name = "Claire UnderWood" };
-            SchoolBase ob = studentTest;
             PrintTitle("Alumno");
             WriteLine($"Alumno: {studentTest.Name}");
             WriteLine($"ID: {studentTest.UniqueId}");
             WriteLine($"Tipo: {studentTest.GetType()}");
+            SchoolBase ob = studentTest;
             PrintTitle("Objeto Escuela");
             WriteLine($"Alumno: {ob.Name}");
             WriteLine($"ID: {ob.UniqueId}");
@@ -35,11 +35,17 @@ namespace SchoolCore
             WriteLine($"Alumno: {objDummy.Name}");
             WriteLine($"ID: {objDummy.UniqueId}");
             WriteLine($"Tipo: {objDummy.GetType()}");
-            studentTest = (Student)objDummy;
-            PrintTitle("Alumno comberso");
-            WriteLine($"Alumno: {studentTest.Name}");
-            WriteLine($"ID: {studentTest.UniqueId}");
-            WriteLine($"Tipo: {studentTest.GetType()}");
+            var evaluation = new Evaluation { Name = "Evaluacion de Matematicas", Score = 4.5f };
+            PrintTitle("Evaluacion");
+            WriteLine($"Evaluacion: {evaluation.Name}");
+            WriteLine($"ID: {evaluation.UniqueId}");
+            WriteLine($"Nota: {evaluation.Score}");
+            WriteLine($"Tipo: {evaluation.GetType()}");
+            ob = evaluation;
+            PrintTitle("Objeto Evaluacion");
+            WriteLine($"Alumno: {ob.Name}");
+            WriteLine($"ID: {ob.UniqueId}");
+            WriteLine($"Tipo: {ob.GetType()}");
         }
 
         private static bool Predicate(Course objectiveCourse)
