@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace SchoolCore.Entidades
 {
-    public class School : SchoolBase
+    public class School : SchoolBase, ILocalizable
     {
         public int FundationYear { get; set; }
         public string Country { get; set; }
@@ -11,6 +11,7 @@ namespace SchoolCore.Entidades
         public SchoolType SchoolType { get; set; }
 
         public List<Course> Courses { get; set; }
+        public string Address { get; set; }
 
         public School(string name, int fundationYear) =>
             (Name, FundationYear) = (name, fundationYear);

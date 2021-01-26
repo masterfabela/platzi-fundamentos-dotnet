@@ -27,6 +27,8 @@ namespace SchoolCore
 
         }
 
+        #region cargas
+
         private void InitializeCourses()
         {
             School.Courses = new List<Course>{
@@ -74,6 +76,9 @@ namespace SchoolCore
                 }
             }
         }
+
+        #endregion
+
 
         private List<Student> GetStudents(int cuantity = 30)
         {
