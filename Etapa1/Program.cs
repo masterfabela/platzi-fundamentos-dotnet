@@ -14,6 +14,32 @@ namespace SchoolCore
             engine.Initialize();
             PrintTitle("Bienvenidos a la escuela");
             PrintSchoolCourses(engine.School);
+            PruebasPolimorfismo();
+        }
+
+        private static void PruebasPolimorfismo()
+        {
+            PrintTitle("Pruebas de polimorfismo");
+            var studentTest = new Student { Name = "Claire UnderWood" };
+            SchoolBase ob = studentTest;
+            PrintTitle("Alumno");
+            WriteLine($"Alumno: {studentTest.Name}");
+            WriteLine($"ID: {studentTest.UniqueId}");
+            WriteLine($"Tipo: {studentTest.GetType()}");
+            PrintTitle("Objeto Escuela");
+            WriteLine($"Alumno: {ob.Name}");
+            WriteLine($"ID: {ob.UniqueId}");
+            WriteLine($"Tipo: {ob.GetType()}");
+            var objDummy = new SchoolBase() { Name = "Frank Underwood" };
+            PrintTitle("Dummy");
+            WriteLine($"Alumno: {objDummy.Name}");
+            WriteLine($"ID: {objDummy.UniqueId}");
+            WriteLine($"Tipo: {objDummy.GetType()}");
+            studentTest = (Student)objDummy;
+            PrintTitle("Alumno comberso");
+            WriteLine($"Alumno: {studentTest.Name}");
+            WriteLine($"ID: {studentTest.UniqueId}");
+            WriteLine($"Tipo: {studentTest.GetType()}");
         }
 
         private static bool Predicate(Course objectiveCourse)
