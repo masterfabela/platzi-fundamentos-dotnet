@@ -1,3 +1,4 @@
+using System;
 using static System.Console;
 
 namespace SchoolCore.Util
@@ -19,10 +20,7 @@ namespace SchoolCore.Util
 
         public static void Beep(int hz = 2000, int time = 500, int cuantity = 1)
         {
-            while (cuantity-- > 0)
-            {
-                System.Console.Beep(hz, time);
-            }
+
         }
     }
 }
