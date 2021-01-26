@@ -34,7 +34,7 @@ namespace SchoolCore
         {
             foreach (var course in courses)
             {
-                WriteLine($"Nombre: {course.Name}, Id {course.Id}");
+                WriteLine($"Nombre: {course.Name}, Id {course.UniqueId}");
             }
         }
     }
