@@ -2,7 +2,7 @@ using static System.Guid;
 
 namespace SchoolCore.Entidades
 {
-    class Evaluation
+    public class Evaluation
     {
         public string UniqueId { get; private set; } = NewGuid().ToString();
         public string Name { get; set; }

@@ -1,4 +1,5 @@
 using System;
+using static System.Math;
 using System.Collections.Generic;
 using System.Linq;
 using SchoolCore.Entidades;
@@ -23,7 +24,6 @@ namespace SchoolCore
             InitializeCourses();
             InitialiceSubjects();
 
-
         }
 
         private void InitializeCourses()
@@ -38,6 +38,7 @@ namespace SchoolCore
             foreach (var course in School.Courses)
             {
                 course.Students.AddRange(GetStudents(new Random().Next(5, 20)));
+
             }
         }
 
@@ -52,6 +53,24 @@ namespace SchoolCore
             foreach (var course in School.Courses)
             {
                 course.Subjects.AddRange(subjects);
+                foreach (var student in course.Students)
+                {
+                    foreach (var subject in course.Subjects)
+                    {
+                        for (int i = 0; i < 5; i++)
+                        {
+                            var evaluation = new Evaluation
+                            {
+                                Score = (float)Round(new Random().NextDouble() * 5, 2),
+                                Student = student,
+                                Subject = subject,
+                                Name = $"Evaluacion {i}"
+                            };
+                            student.Evaluations.Add(evaluation);
+                        }
+
+                    }
+                }
             }
         }
 
@@ -70,5 +89,6 @@ namespace SchoolCore
                 .Take(cuantity)
                 .ToList();
         }
+
     }
 }
