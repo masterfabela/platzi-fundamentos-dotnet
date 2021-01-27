@@ -29,18 +29,44 @@ namespace SchoolCore.Entidades
             return $"Nombre: \"{this.Name}\", Tipo: {this.SchoolType} {System.Environment.NewLine}Pais: {this.Country}, Ciudad: {this.City}";
         }
 
-        public List<SchoolBase> GetSchoolObjects()
+        public List<SchoolBase> GetSchoolObjects(
+            out int evaluationsCount,
+            out int studentsCount,
+            out int coursesCount,
+            out int subjectsCount,
+            bool hasEvaluations = true,
+            bool hasStudents = true,
+            bool hasSubjects = true,
+            bool hasCourses = true
+        )
         {
+            evaluationsCount = studentsCount = coursesCount = subjectsCount = 0;
             var objectList = new List<SchoolBase>();
             objectList.Add(this);
-            objectList.AddRange(this.Courses);
+            if (hasCourses)
+            {
+                coursesCount += this.Courses.Count;
+                objectList.AddRange(this.Courses);
+            }
             foreach (Course course in this.Courses)
             {
-                objectList.AddRange(course.Subjects);
-                objectList.AddRange(course.Students);
-                foreach (Student student in course.Students)
+                if (hasSubjects)
                 {
-                    objectList.AddRange(student.Evaluations);
+                    subjectsCount += course.Subjects.Count;
+                    objectList.AddRange(course.Subjects);
+                }
+                if (hasStudents)
+                {
+                    studentsCount += course.Students.Count;
+                    objectList.AddRange(course.Students);
+                }
+                if (hasEvaluations)
+                {
+                    foreach (Student student in course.Students)
+                    {
+                        evaluationsCount += student.Evaluations.Count;
+                        objectList.AddRange(student.Evaluations);
+                    }
                 }
             }
             return objectList;

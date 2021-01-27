@@ -23,8 +23,7 @@ namespace SchoolCore
             );
             InitializeCourses();
             InitialiceSubjects();
-            var schoolObjects = School.GetSchoolObjects();
-
+            var schoolObjects = School.GetSchoolObjects(hasEvaluations: false);
         }
 
         #region cargas
@@ -78,7 +77,6 @@ namespace SchoolCore
         }
 
         #endregion
-
 
         private List<Student> GetStudents(int cuantity = 30)
         {
