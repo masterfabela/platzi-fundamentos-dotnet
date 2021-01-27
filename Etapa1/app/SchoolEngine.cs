@@ -23,7 +23,14 @@ namespace SchoolCore
             );
             InitializeCourses();
             InitialiceSubjects();
-            var schoolObjects = School.GetSchoolObjects(hasEvaluations: false);
+            int unWanted = 0;
+            var schoolObjects = School.GetSchoolObjects(
+                out int evaluationsCount,
+                out unWanted,
+                out unWanted,
+                out unWanted
+            );
+            Console.WriteLine(evaluationsCount);
         }
 
         #region cargas
