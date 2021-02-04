@@ -15,6 +15,28 @@ namespace SchoolCore
             PrintTitle("Bienvenidos a la escuela");
             PrintSchoolCourses(engine.School);
             PruebasPolimorfismo();
+            engine.School.GetSchoolObjects();
+            PruebasDiccionarios();
+        }
+
+        private static void PruebasDiccionarios()
+        {
+            Dictionary<int, string> dictionary = new Dictionary<int, string>();
+            dictionary.Add(10, "JuanK");
+            dictionary.Add(23, "Lorem Ipsum");
+            foreach (var keyValPair in dictionary)
+            {
+                Console.WriteLine($"Key: {keyValPair.Key}, Valor: {keyValPair.Value}");
+            }
+            PrintTitle("Acceso a diccionario");
+            dictionary[0] = "Pekerman";
+            WriteLine(dictionary[0]);
+            PrintTitle("Otro dicionario");
+            var dic = new Dictionary<string, string>();
+            dic["luna"] = "Cuerpo celeste que gira alrededor de la tierra";
+            WriteLine(dic["luna"]);
+            dic.Add("luna", "Protagonista de soy luna");
+            WriteLine(dic["luna"]);
         }
 
         private static void PruebasPolimorfismo()
