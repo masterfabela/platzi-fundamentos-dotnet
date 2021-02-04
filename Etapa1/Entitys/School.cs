@@ -30,7 +30,7 @@ namespace SchoolCore.Entidades
         }
 
 
-        public List<SchoolBase> GetSchoolObjects(
+        public IReadOnlyList<SchoolBase> GetSchoolObjects(
             bool hasEvaluations = true,
             bool hasStudents = true,
             bool hasSubjects = true,
@@ -49,7 +49,7 @@ namespace SchoolCore.Entidades
             );
         }
 
-        public List<SchoolBase> GetSchoolObjects(
+        public IReadOnlyList<SchoolBase> GetSchoolObjects(
             out int evaluationsCount,
             bool hasEvaluations = true,
             bool hasStudents = true,
@@ -64,7 +64,7 @@ namespace SchoolCore.Entidades
                 hasCourses);
         }
 
-        public List<SchoolBase> GetSchoolObjects(
+        public IReadOnlyList<SchoolBase> GetSchoolObjects(
             out int evaluationsCount,
             out int studentsCount,
             out int coursesCount,
@@ -104,7 +104,7 @@ namespace SchoolCore.Entidades
                     }
                 }
             }
-            return objectList;
+            return objectList.AsReadOnly();
         }
 
     }
