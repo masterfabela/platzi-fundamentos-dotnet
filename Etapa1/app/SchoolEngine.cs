@@ -101,5 +101,13 @@ namespace SchoolCore
                 .ToList();
         }
 
+        public Dictionary<string, IEnumerable<SchoolBase>> GetObjectsDictionary()
+        {
+            var dictionary = new Dictionary<string, IEnumerable<SchoolBase>>();
+            dictionary.Add("School", new[] { School });
+            dictionary.Add("Cursos", School.Courses.Cast<SchoolBase>());
+            return dictionary;
+        }
+
     }
 }
