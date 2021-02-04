@@ -29,6 +29,41 @@ namespace SchoolCore.Entidades
             return $"Nombre: \"{this.Name}\", Tipo: {this.SchoolType} {System.Environment.NewLine}Pais: {this.Country}, Ciudad: {this.City}";
         }
 
+
+        public List<SchoolBase> GetSchoolObjects(
+            bool hasEvaluations = true,
+            bool hasStudents = true,
+            bool hasSubjects = true,
+            bool hasCourses = true
+        )
+        {
+            return GetSchoolObjects(
+                out int dummy,
+                out dummy,
+                out dummy,
+                out dummy,
+                hasEvaluations,
+                hasStudents,
+                hasSubjects,
+                hasCourses
+            );
+        }
+
+        public List<SchoolBase> GetSchoolObjects(
+            out int evaluationsCount,
+            bool hasEvaluations = true,
+            bool hasStudents = true,
+            bool hasSubjects = true,
+            bool hasCourses = true
+        )
+        {
+            return GetSchoolObjects(
+                out evaluationsCount,
+                hasEvaluations,
+                hasStudents,
+                hasCourses);
+        }
+
         public List<SchoolBase> GetSchoolObjects(
             out int evaluationsCount,
             out int studentsCount,
