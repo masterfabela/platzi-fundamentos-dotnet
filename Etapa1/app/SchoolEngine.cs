@@ -101,11 +101,24 @@ namespace SchoolCore
                 .ToList();
         }
 
-        public Dictionary<string, IEnumerable<SchoolBase>> GetObjectsDictionary()
+        public Dictionary<DictionaryKeys, IEnumerable<SchoolBase>> GetObjectsDictionary()
         {
-            var dictionary = new Dictionary<string, IEnumerable<SchoolBase>>();
-            dictionary.Add("School", new[] { School });
-            dictionary.Add("Cursos", School.Courses.Cast<SchoolBase>());
+            var dictionary = new Dictionary<DictionaryKeys, IEnumerable<SchoolBase>>();
+            dictionary.Add(DictionaryKeys.School, new[] { School });
+            dictionary.Add(DictionaryKeys.Cursos, School.Courses.Cast<SchoolBase>());
+            dictionary[DictionaryKeys.Cursos] = School.Courses.Cast<SchoolBase>();
+            var students = new List<Student>();
+            var evaluations = new List<Evaluation>();
+            foreach (var course in School.Courses)
+            {
+                students.AddRange(course.Students);
+                foreach (var student in course.Students)
+                {
+                    evaluations.AddRange(student.Evaluations);
+                }
+            }
+            dictionary[DictionaryKeys.Students] = students;
+            dictionary[DictionaryKeys.Evaluation] = evaluations;
             return dictionary;
         }
 
