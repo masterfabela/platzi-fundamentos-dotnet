@@ -122,14 +122,40 @@ namespace SchoolCore
             return dictionary;
         }
 
-        public void PrintDictionary(Dictionary<DictionaryKeys, IEnumerable<SchoolBase>> dictionary)
+        public void PrintDictionary(
+            Dictionary<DictionaryKeys, IEnumerable<SchoolBase>> dictionary,
+            bool printEvaluations = false
+            )
         {
             foreach (var element in dictionary)
             {
                 Util.Printer.PrintTitle(element.Key.ToString());
                 foreach (var val in element.Value)
                 {
-                    Console.WriteLine(val);
+                    switch (val.GetType())
+                    {
+
+                    }
+                    if (val is Evaluation)
+                    {
+                        if (printEvaluations)
+                        {
+                            Console.WriteLine(val);
+                        }
+                    }
+                    else if (val is Student)
+                    {
+                        Console.WriteLine($"Alumno: {val.Name}");
+                    }
+                    else if (val is School)
+                    {
+                        Console.WriteLine($"Escuela: {val}");
+                    }
+                    else
+                    {
+                        Console.WriteLine(val);
+                    }
+
                 }
             }
         }
