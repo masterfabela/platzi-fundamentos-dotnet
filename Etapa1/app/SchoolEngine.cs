@@ -122,5 +122,17 @@ namespace SchoolCore
             return dictionary;
         }
 
+        public void PrintDictionary(Dictionary<DictionaryKeys, IEnumerable<SchoolBase>> dictionary)
+        {
+            foreach (var element in dictionary)
+            {
+                Util.Printer.PrintTitle(element.Key.ToString());
+                foreach (var val in element.Value)
+                {
+                    Console.WriteLine(val);
+                }
+            }
+        }
+
     }
 }

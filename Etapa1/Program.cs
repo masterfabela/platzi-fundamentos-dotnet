@@ -17,6 +17,7 @@ namespace SchoolCore
             PruebasPolimorfismo();
             engine.School.GetSchoolObjects();
             var dicTemp = engine.GetObjectsDictionary();
+            engine.PrintDictionary(dicTemp);
         }
 
         private static void PruebasDiccionarios()
