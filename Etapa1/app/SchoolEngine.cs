@@ -132,30 +132,31 @@ namespace SchoolCore
                 Util.Printer.PrintTitle(element.Key.ToString());
                 foreach (var val in element.Value)
                 {
-                    switch (val.GetType())
+                    switch (element.Key)
                     {
-
-                    }
-                    if (val is Evaluation)
-                    {
-                        if (printEvaluations)
-                        {
+                        case DictionaryKeys.Evaluation:
+                            if (printEvaluations)
+                            {
+                                Console.WriteLine(val);
+                            }
+                            break;
+                        case DictionaryKeys.Students:
+                            Console.WriteLine($"Alumno: {val.Name}");
+                            break;
+                        case DictionaryKeys.School:
+                            Console.WriteLine($"Escuela: {val}");
+                            break;
+                        case DictionaryKeys.Cursos:
+                            var count = ((Course)val).Students.Count;
+                            if (count > 0)
+                            {
+                                Console.WriteLine($"Curso: {val.Name} Cantidad Alumnos: {count}");
+                            }
+                            break;
+                        default:
                             Console.WriteLine(val);
-                        }
+                            break;
                     }
-                    else if (val is Student)
-                    {
-                        Console.WriteLine($"Alumno: {val.Name}");
-                    }
-                    else if (val is School)
-                    {
-                        Console.WriteLine($"Escuela: {val}");
-                    }
-                    else
-                    {
-                        Console.WriteLine(val);
-                    }
-
                 }
             }
         }

@@ -10,6 +10,8 @@ namespace SchoolCore
     {
         static void Main(string[] args)
         {
+            AppDomain.CurrentDomain.ProcessExit += DoEventAction;
+            AppDomain.CurrentDomain.ProcessExit += (object sender, EventArgs e) => Beep(100, 100, 1);
             var engine = new SchoolEngine();
             engine.Initialize();
             PrintTitle("Bienvenidos a la escuela");
@@ -18,6 +20,13 @@ namespace SchoolCore
             engine.School.GetSchoolObjects();
             var dicTemp = engine.GetObjectsDictionary();
             engine.PrintDictionary(dicTemp);
+        }
+
+        private static void DoEventAction(object sender, EventArgs e)
+        {
+            Util.Printer.PrintTitle("SALIENDO");
+            Util.Printer.Beep(3000, 1000, 3);
+            Util.Printer.PrintTitle("SALIO");
         }
 
         private static void PruebasDiccionarios()
