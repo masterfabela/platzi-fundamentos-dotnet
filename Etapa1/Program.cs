@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using SchoolCore.App;
 using SchoolCore.Entidades;
 using static System.Console;
 using static SchoolCore.Util.Printer;
@@ -15,11 +16,8 @@ namespace SchoolCore
             var engine = new SchoolEngine();
             engine.Initialize();
             PrintTitle("Bienvenidos a la escuela");
-            PrintSchoolCourses(engine.School);
-            PruebasPolimorfismo();
-            engine.School.GetSchoolObjects();
-            var dicTemp = engine.GetObjectsDictionary();
-            engine.PrintDictionary(dicTemp);
+            var reporter = new Reporter(engine.GetObjectsDictionary());
+            reporter.GetEvaluationsList();
         }
 
         private static void DoEventAction(object sender, EventArgs e)

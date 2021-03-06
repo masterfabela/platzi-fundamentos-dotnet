@@ -2,7 +2,7 @@
 
 namespace coreEscuela
 {
-    class School 
+    class School
     {
         public string name;
         public string addres;
@@ -24,7 +24,6 @@ namespace coreEscuela
             mySchool.addres = "Cr 9 calle 72";
             mySchool.fundationYear = 2012;
             Console.WriteLine("Timbre");
-            ZeldasSong();
         }
 
         static void ZeldasSong()

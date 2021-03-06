@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using SchoolCore.Entidades;
 
-namespace SchoolCore
+namespace SchoolCore.App
 {
     public sealed class SchoolEngine
     {
