@@ -10,25 +10,46 @@ namespace SchoolCore.App
         Dictionary<DictionaryKeys, IEnumerable<SchoolBase>> _dictionary;
         public Reporter(Dictionary<DictionaryKeys, IEnumerable<SchoolBase>> schoolData)
         {
-            if (_dictionary == null)
-            {
-                throw new ArgumentNullException(nameof(schoolData));
-            }
             this._dictionary = schoolData;
         }
 
-        public IEnumerable<School> GetEvaluationsList()
+        public IEnumerable<Evaluation> GetEvaluationsList()
         {
-            IEnumerable<School> response;
-            if (_dictionary.TryGetValue(DictionaryKeys.School, out IEnumerable<SchoolBase> list))
+            if (_dictionary.TryGetValue(DictionaryKeys.Evaluation, out IEnumerable<SchoolBase> list))
             {
-                response = list.Cast<School>();
-                return response;
+                return list.Cast<Evaluation>();
             }
             else
             {
-                return null;
+                return new List<Evaluation>();
             }
+        }
+
+        public IEnumerable<String> GetSubjectList()
+        {
+            return GetSubjectList(out var dummy);
+        }
+
+        public IEnumerable<String> GetSubjectList(out IEnumerable<Evaluation> evaluationList)
+        {
+            evaluationList = GetEvaluationsList();
+            return evaluationList
+                .Select((evaluation) => evaluation.Subject.Name)
+                .Distinct();
+        }
+
+        public Dictionary<string, IEnumerable<Evaluation>> GetEvaluationDictionaryBySubject()
+        {
+            Dictionary<string, IEnumerable<Evaluation>> resultDictionary =
+                new Dictionary<string, IEnumerable<Evaluation>>();
+            var subjectList = GetSubjectList(out var evaluationList);
+            foreach (var subject in subjectList)
+            {
+                var subjectEvaluations = evaluationList
+                    .Where((evaluation) => evaluation.Subject.Name == subject);
+                resultDictionary.Add(subject, subjectEvaluations);
+            }
+            return resultDictionary;
         }
     }
 }

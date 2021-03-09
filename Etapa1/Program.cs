@@ -17,7 +17,9 @@ namespace SchoolCore
             engine.Initialize();
             PrintTitle("Bienvenidos a la escuela");
             var reporter = new Reporter(engine.GetObjectsDictionary());
-            reporter.GetEvaluationsList();
+            var evaluationList = reporter.GetEvaluationsList();
+            var subjectList = reporter.GetSubjectList();
+            var evaluationBySubjectList = reporter.GetEvaluationDictionaryBySubject();
         }
 
         private static void DoEventAction(object sender, EventArgs e)
