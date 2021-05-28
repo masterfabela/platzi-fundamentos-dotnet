@@ -20,6 +20,8 @@ namespace SchoolCore
             var evaluationList = reporter.GetEvaluationsList();
             var subjectList = reporter.GetSubjectList();
             var evaluationBySubjectList = reporter.GetEvaluationDictionaryBySubject();
+            Dictionary<string, IEnumerable<StudentAverage>> averageScoreBySubject = reporter.GetScoreStudentsBySubject();
+            var topAveragesPerSubject = reporter.GetTopStudentsBySubjects(averageScoreBySubject);
         }
 
         private static void DoEventAction(object sender, EventArgs e)

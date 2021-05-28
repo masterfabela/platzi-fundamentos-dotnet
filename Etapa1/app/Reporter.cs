@@ -51,5 +51,42 @@ namespace SchoolCore.App
             }
             return resultDictionary;
         }
+
+        public Dictionary<string, IEnumerable<StudentAverage>> GetScoreStudentsBySubject()
+        {
+            var response = new Dictionary<string, IEnumerable<StudentAverage>>();
+            var scoresBySubjectDictionary = GetEvaluationDictionaryBySubject();
+            foreach (var subjectWithScore in scoresBySubjectDictionary)
+            {
+                var scoreAvg = subjectWithScore.Value
+                    .GroupBy((eval) => new
+                    {
+                        eval.Student.UniqueId,
+                        eval.Student.Name
+                    })
+                    .Select((eval) => new StudentAverage
+                    {
+                        StudentId = eval.Key.UniqueId,
+                        Average = eval.Average((eval) => eval.Score),
+                        StudentName = eval.Key.Name
+                    });
+                response.Add(subjectWithScore.Key, scoreAvg);
+            }
+            return response;
+        }
+
+        // Conseguir top 5 de promedio de todas las asignaturas
+        public Dictionary<string, IEnumerable<StudentAverage>> GetTopStudentsBySubjects(Dictionary<string, IEnumerable<StudentAverage>> scoreStudentsBySubject)
+        {
+            var response = new Dictionary<string, IEnumerable<StudentAverage>>();
+            foreach (var subject in scoreStudentsBySubject)
+            {
+                IEnumerable<StudentAverage> topAverages = subject.Value
+                    .OrderByDescending((average) => average.Average)
+                    .Take(5);
+                response.Add(subject.Key, topAverages);
+            }
+            return response;
+        }
     }
 }
