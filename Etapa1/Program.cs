@@ -71,6 +71,11 @@ namespace SchoolCore
                     WriteLine("La nota insertada debe ser un numero");
                     WriteLine("Saliendo del programa");
                 }
+                finally
+                {
+                    PrintTitle("finally");
+                    Beep(2500, 500, 3);
+                }
             }
             return newEvaluation;
         }
