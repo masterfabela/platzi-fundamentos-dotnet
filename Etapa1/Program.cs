@@ -22,6 +22,57 @@ namespace SchoolCore
             var evaluationBySubjectList = reporter.GetEvaluationDictionaryBySubject();
             Dictionary<string, IEnumerable<StudentAverage>> averageScoreBySubject = reporter.GetScoreStudentsBySubject();
             var topAveragesPerSubject = reporter.GetTopStudentsBySubjects(averageScoreBySubject);
+            getEvaluationByConsole();
+        }
+
+        private static Evaluation getEvaluationByConsole()
+        {
+            WriteLine("Captura una evaluacion por consola");
+            var newEvaluation = new Evaluation();
+            WriteLine("Ingrese el nombre de la evaluacion");
+            PressEnter();
+            string name = Console.ReadLine();
+            if (string.IsNullOrWhiteSpace(name))
+            {
+                WriteLine("El valor del nombre no puede ser vacio");
+                WriteLine("Saliendo del programa");
+            }
+            else
+            {
+                newEvaluation.Name = name.ToLower();
+                WriteLine("El nombre de la evaluacion ha sido ingresado correctamente");
+            }
+            WriteLine("Ingrese la nota de la evaluacion");
+            PressEnter();
+            string scoreString = Console.ReadLine();
+            if (string.IsNullOrWhiteSpace(scoreString))
+            {
+                WriteLine("El valor de la nota no puede ser vacio");
+                WriteLine("Saliendo del programa");
+            }
+            else
+            {
+                try
+                {
+                    newEvaluation.Score = float.Parse(scoreString);
+                    if (newEvaluation.Score < 0 || newEvaluation.Score > 5)
+                    {
+                        throw new ArgumentOutOfRangeException("La nota debe estar entre 0 y 5");
+                    }
+                    WriteLine("El valor de la nota ha sido ingresado correctamente");
+                }
+                catch (ArgumentOutOfRangeException e)
+                {
+                    WriteLine(e.Message);
+                    WriteLine("Saliendo del programa");
+                }
+                catch (Exception)
+                {
+                    WriteLine("La nota insertada debe ser un numero");
+                    WriteLine("Saliendo del programa");
+                }
+            }
+            return newEvaluation;
         }
 
         private static void DoEventAction(object sender, EventArgs e)

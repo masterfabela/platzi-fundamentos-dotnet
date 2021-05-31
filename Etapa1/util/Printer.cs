@@ -18,6 +18,11 @@ namespace SchoolCore.Util
             DrawLine(title.Length + 4);
         }
 
+        public static void PressEnter()
+        {
+            WriteLine("Presione enter para continuar");
+        }
+
         public static void Beep(int hz = 2000, int time = 500, int cuantity = 1)
         {
 
